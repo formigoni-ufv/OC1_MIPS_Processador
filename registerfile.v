@@ -22,23 +22,17 @@ module registerfile(
 
 	///////////OUTPUT ASSIGNMENT////////////
 	always @ (reg1addr) begin
-		for(i=0; i<32; i++)begin
-			reg1content[i] = registers[reg1addr][i];
-		end
+			reg1content = registers[reg1addr];
 	end
 
 	always @ (reg2addr) begin
-		for(i=0; i<32; i++)begin
-			reg2content[i] = registers[reg2addr][i];
-		end
+		reg2content = registers[reg2addr];
 	end
 
 	////////////DATA WRITE//////////////////
 	always@(posedge clk) begin
 		if(regWflag == 1) begin
-			for(i=0; i<32; i++)begin
-				registers[regWaddr][i] = data[i];
-			end
+			registers[regWaddr] = data;
 		end
 	end
 endmodule

@@ -1,4 +1,4 @@
-module alu(
+module arithmeticlogicunit(
 	input[31:0] A, B,						//Inputs
 	input[3:0] OP,							//Operation selector
 	output reg[31:0] OUT,				//Result of the operation
