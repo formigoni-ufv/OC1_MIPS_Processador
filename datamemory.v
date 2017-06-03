@@ -11,7 +11,7 @@ module datamemory(
 	initial begin
 		memory[0] = 32'b100;
 		memory[1] = 32'b101;
-		memory[6] = 32'b01111;
+		memory[7] = 32'b10101;
 	end
 
 	always @ (addr, writeData) begin

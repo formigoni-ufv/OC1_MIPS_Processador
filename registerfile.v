@@ -14,7 +14,7 @@ module registerfile(
 
 	initial begin
 		registers[0] = 0;
-		registers[8] = 6;
+		registers[8] = 10;
 		registers[9] = 10;
 		registers[10] = 6;
 		registers[16] = 4;
