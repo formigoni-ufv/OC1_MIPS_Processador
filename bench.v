@@ -98,25 +98,46 @@
 // 	end
 // endmodule
 
-`include "signext.v"
+// `include "signext.v"
+//
+// module testbench();
+// 	reg[15:0] i0;
+// 	wire[31:0] out;
+//
+// 	signext ext(
+// 		.i0(i0),
+// 		.out(out)
+// 	);
+//
+// 	initial begin
+// 		$monitor("i0: %b\nout: %b\n\n", i0, out);
+// 	end
+//
+// 	initial begin
+// 		#5	i0 = 16'b1000000000000000;
+// 		$display("i0[15]: %b", i0[15]);
+// 		#5	i0 = 16'b0100000000000000;
+// 		$display("i0[15]: %b", i0[15]);
+// 	end
+// endmodule
+
+`include "andgate.v"
 
 module testbench();
-	reg[15:0] i0;
-	wire[31:0] out;
+	reg i0, i1;
+	wire out;
 
-	signext ext(
+	andgate gate(
 		.i0(i0),
+		.i1(i1),
 		.out(out)
 	);
 
 	initial begin
-		$monitor("i0: %b\nout: %b\n\n", i0, out);
+			i0 <= 1;
+			i1 <= 1;
+			$monitor("Out: %b\n", out);
 	end
 
-	initial begin
-		#5	i0 = 16'b1000000000000000;
-		$display("i0[15]: %b", i0[15]);
-		#5	i0 = 16'b0100000000000000;
-		$display("i0[15]: %b", i0[15]);
-	end
+
 endmodule

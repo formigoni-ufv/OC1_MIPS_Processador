@@ -1,15 +1,19 @@
+`include "maincontrolunit.v"
 `include "programcounter.v"
 `include "instructionmemory.v"
 `include "multiplexor.v"
 `include "registerfile.v"
 `include "signext.v"
 `include "arithmeticlogicunit.v"
+`include "andgate.v"
 `include "alu_control.v"
 `include "sll.v"
 `include "datamemory.v"
 
 module processor ();
 	reg clk;
+	//Main Control Unit VARS
+	wire branch;
 	//PC VARS
 	wire [31:0] pcIn;
 	wire[31:0] pcOut;
@@ -18,20 +22,20 @@ module processor ();
 	//INSMEM VARS
 	wire[31:0] insMemOut;
 	//REG FILE MUX
-	reg regDst = 0;		//TODO conectar o controle
+	wire regDst;
 	wire[4:0] regDstOut;
 	//REG FILE VARS
-	reg regWrite = 0;			//TODO conectar o controle
+	wire regWrite;
 	wire[31:0] reg1content;
 	wire[31:0] reg2content;
 	wire[31:0] memtoRegOut;
 	//SIGN EXT
 	wire[31:0] extOut;
 	//MAIN ALU MUX
-	reg aluSrc = 0;		//TODO conectar o controle
+	wire aluSrc;
 	wire[31:0] aluSrcOut;
 	//MAIN ALU CONTROL
-	reg[1:0] ALUOp = 1;	//TODO conectar o controle
+	wire[1:0] ALUOp;
 	wire[3:0] aluCtrlOut;
 	//MAIN ALU
 	wire zero;
@@ -40,13 +44,15 @@ module processor ();
 	wire[31:0] sllOut;
 	//BranchAlu
 	wire[31:0] branchAluOut;
+	//AND
+	wire andGateOut;
 	//PCSrc MUX
-	reg pcSrc;		//TODO conectar o controle
 	wire[31:0] pcSrcOut;
 	//DATA MEMORY
+	wire memRead, memWrite;
 	wire[31:0] dataMemOut;
 	//MEMtoREG MUX
-	reg MemtoReg = 0;		//TODO conectar o controle
+	wire MemtoReg;
 
 	programcounter pc(
 		.clock(clk),
@@ -64,6 +70,19 @@ module processor ();
 	instructionmemory insmem(
 		.addr(pcOut),
 		.instruction(insMemOut)
+	);
+
+	maincontrolunit controlUnit(
+		.op(insMemOut[31:26]),
+		.regDst(regDst),
+		.ALUSrc(aluSrc),
+		.memtoReg(MemtoReg),
+		.regWrite(regWrite),
+		.memRead(memRead),
+		.memWrite(memWrite),
+		.branch(branch),
+		.ALUOp1(ALUOp[1]),
+		.ALUOp0(ALUOp[0])
 	);
 
 	multiplexorRegDst regfilemux(
@@ -125,14 +144,21 @@ module processor ();
 	multiplexorPCSrc branchmux(
 		.i0(aluPCPlus4Out),
 		.i1(branchAluOut),
-		.control(zero),	//TODO colocar saida de porta and aqui (zero && beq?)
+		.control(andGateOut),
 		.out(pcIn)
+	);
+
+	andgate gate(
+		.i0(branch),
+		.i1(zero),
+		.out(andGateOut)
 	);
 
 	datamemory datamem(
 		.addr(aluMainOut),
 		.writeData(reg2content),
-		.memRead(1'b0),	//TODO conectar ao controle ambos memRead e memWrite
+		.memRead(memRead),
+		.memWrite(memWrite),
 		.readData(dataMemOut)
 	);
 
@@ -144,16 +170,18 @@ module processor ();
 	);
 
 	initial begin
-		$monitor("clk: %b\npcOut: %b\nPC+4: %b\nSllOut: %b\npcIn|muxOut: %b\ninsMemOut: %b\n", clk, pcOut, aluPCPlus4Out, sllOut, pcIn, insMemOut);
+		// $monitor("clk: %b\npcOut: %b\nPC+4: %b\nSllOut: %b\npcIn|muxOut: %b\ninsMemOut: %b\n", clk, pcOut, aluPCPlus4Out, sllOut, pcIn, insMemOut);
 		// $monitor("reg1addr: %b\nreg2addr: %b\nreg1content: %b\nreg2content: %b\naluSrcOut: %b\n\n", insMemOut[25:21], insMemOut[20:16], reg1content, reg2content, aluSrcOut);
 		// $monitor("MainAluOp: %b\nMainAluOut: %b\nZero: %b\n\n", aluCtrlOut, aluMainOut, zero);
 		// $monitor("DataOut: %b\n", dataMemOut);
-		// $monitor("reg2content: %b\nmemtoRegOut: %b\n", reg2content, memtoRegOut);
+		$monitor("memtoRegOut: %b\n", memtoRegOut);
 		// $monitor("clk: %b\nsignextOut: %b\nSLLOut: %b\nPCPlus4Out: %b\nBranchAluOut: %b\npcSrcOut: %b\n", clk, extOut, sllOut, aluPCPlus4Out, branchAluOut, pcIn);
 	end
 
 	//clk transition
 	initial begin
+	#200	clk = 0;
+	#200	clk = 1;
 	#200	clk = 0;
 	#200	clk = 1;
 	#200	clk = 0;
