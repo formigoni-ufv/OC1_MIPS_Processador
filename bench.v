@@ -76,24 +76,47 @@
 // 	end
 // endmodule
 
-`include "instructionmemory.v"
+// `include "instructionmemory.v"
+//
+// module testbench ();
+// 	reg[31:0] addr;
+// 	wire[31:0] instruction;
+//
+// 	instructionmemory imem(
+// 		.addr(addr),
+// 		.instruction(instruction)
+// 	);
+//
+// 	initial begin
+// 		#5 addr = 2'b00;
+// 		#5 addr = 2'b01;
+// 		#5 addr = 2'b10;
+// 	end
+//
+// 	always @ (addr) begin
+// 		$monitor("%b", instruction);
+// 	end
+// endmodule
 
-module testbench ();
-	reg[31:0] addr;
-	wire[31:0] instruction;
+`include "signext.v"
 
-	instructionmemory imem(
-		.addr(addr),
-		.instruction(instruction)
+module testbench();
+	reg[15:0] i0;
+	wire[31:0] out;
+
+	signext ext(
+		.i0(i0),
+		.out(out)
 	);
 
 	initial begin
-		#5 addr = 2'b00;
-		#5 addr = 2'b01;
-		#5 addr = 2'b10;
+		$monitor("i0: %b\nout: %b\n\n", i0, out);
 	end
 
-	always @ (addr) begin
-		$monitor("%b", instruction);
+	initial begin
+		#5	i0 = 16'b1000000000000000;
+		$display("i0[15]: %b", i0[15]);
+		#5	i0 = 16'b0100000000000000;
+		$display("i0[15]: %b", i0[15]);
 	end
 endmodule

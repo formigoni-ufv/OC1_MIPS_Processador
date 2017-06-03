@@ -13,7 +13,7 @@ module arithmeticlogicunit(
 			1: OUT = A | B;
 			2: OUT = A + B;
 			6: OUT = A - B;
-			7: OUT = (A < B);
+			7: OUT = A < B;
 			default: ;
 		endcase
 	end

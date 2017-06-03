@@ -4,16 +4,19 @@ module registerfile(
 	input wire[4:0] reg2addr,
 	input wire[4:0] regWaddr,
 	input wire[31:0] data,
-	input wire regWflag,
+	input wire regWrite,
 	output reg[31:0] reg1content,
 	output reg[31:0] reg2content
 	);
 
-	reg[5:0] i;								//5 bits to go copy the bits 0 to 31
+	reg update;								//5 bits to go copy the bits 0 to 31
 	reg[31:0] registers[0:31];			//Registers
 
 	initial begin
 		registers[0] = 0;
+		registers[8] = 6;
+		registers[9] = 10;
+		registers[10] = 6;
 		registers[16] = 4;
 		registers[17] = 32;
 		registers[18] = 10;
@@ -22,17 +25,19 @@ module registerfile(
 
 	///////////OUTPUT ASSIGNMENT////////////
 	always @ (reg1addr) begin
-			reg1content = registers[reg1addr];
+			reg1content <= registers[reg1addr];
 	end
 
-	always @ (reg2addr) begin
-		reg2content = registers[reg2addr];
+	always @ (reg2addr, update) begin
+		reg2content <= registers[reg2addr];
+		update <= 0;
 	end
 
 	////////////DATA WRITE//////////////////
-	always@(posedge clk) begin
-		if(regWflag == 1) begin
+	always@(negedge clk) begin
+		if(regWrite == 1) begin
 			registers[regWaddr] = data;
+			update = 1;
 		end
 	end
 endmodule

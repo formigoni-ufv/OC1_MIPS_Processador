@@ -1,29 +1,20 @@
-module alu_control(ALUop, FuncCode, ALUctl);
-  input [1:0] ALUop;
-  input [5:0] FuncCode;
-  output reg [3:0] ALUctl;
-  
-  reg [3:0] temp;
+module alu_control(
+	input [1:0] ALUOp,
+	input [5:0] funcCode,
+	output reg [3:0] aluCtrlOut
+	);
 
-  always @ (ALUop) begin
-    case (FuncCode)
-        32: temp <= 2; // ADD
-        34: temp <= 6; // SUB
-        36: temp <= 0; // AND
-        37: temp <= 1; // OR
-        39: temp <= 12; //NOR
-        42: temp <= 7; //SLT
-      default: temp <= 15;
-    endcase
+	always @ (ALUOp, funcCode) begin
+		case(ALUOp)
+			0: aluCtrlOut = 4'b0010;
+			1: aluCtrlOut = 4'b0110;
+			2: case (funcCode)
+						36: aluCtrlOut = 0; // AND
+						37: aluCtrlOut = 1; // OR
+						32: aluCtrlOut = 2; // ADD
+						42: aluCtrlOut = 7; //SLT
+						34: aluCtrlOut = 6; // SUB
+				endcase
+		endcase
   end
-
-always @ (*) begin
-  case (ALUop)
-    0: ALUctl = 2; // ADD
-    1: ALUctl = 6; //SUB
-    2: ALUctl = temp;
-    default: ;
-  endcase
-end
-
 endmodule
