@@ -6,7 +6,7 @@ module datamemory(
 	output reg[31:0] readData
 );
 
-	reg[31:0] memory[0:31]; //TODO Aumentar tamanho da memoria
+	reg[31:0] memory[0:31];
 
 	initial begin
 		memory[0] = 32'b100;

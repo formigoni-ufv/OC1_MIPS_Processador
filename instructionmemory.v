@@ -3,7 +3,7 @@ module instructionmemory (
 	output reg[31:0] instruction
 	);
 
-	reg[31:0] memory[0:31];	//TODO aumentar memoria
+	reg[31:0] memory[0:31];
 
 	///////////MEMORIA DE INSTRUCOES//////////////////////
 	initial begin
@@ -11,10 +11,6 @@ module instructionmemory (
 		memory[1] <= 32'b00000010000010101000000000100010;			//sub $s0 $s0 $t2 12
 		memory[2] <= 32'b00010001010010110000000000000001;			//beq $t2, $t3, 1
 		memory[7] <= 32'b00000010000010101000000000100010;			//sub $s0 $s0 $t1 8
-
-		// memory[2] <= 32'b00010001000010010000000000000010;		//beq $t0, $t1, 2
-		// memory[9] <= 32'b00010001000010011111111111111110;		//beq $t0, $t1, -2
-
 	end
 
 	always @ (addr) begin

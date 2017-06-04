@@ -63,7 +63,7 @@ module processor ();
 	arithmeticlogicunit aluPCPlus4(
 		.A(pcOut),
 		.B(32'b1),
-		.OP(4'b10),			//Fixed OP ALU value, only sum is performed
+		.OP(4'b10),
 		.OUT(aluPCPlus4Out)
 	);
 
@@ -174,21 +174,24 @@ module processor ();
 		// $monitor("reg1addr: %b\nreg2addr: %b\nreg1content: %b\nreg2content: %b\naluSrcOut: %b\n\n", insMemOut[25:21], insMemOut[20:16], reg1content, reg2content, aluSrcOut);
 		// $monitor("MainAluOp: %b\nMainAluOut: %b\nZero: %b\n\n", aluCtrlOut, aluMainOut, zero);
 		// $monitor("DataOut: %b\n", dataMemOut);
-		$monitor("memtoRegOut: %b\n", memtoRegOut);
+		// $monitor("memtoRegOut: %b\n", memtoRegOut);
 		// $monitor("clk: %b\nsignextOut: %b\nSLLOut: %b\nPCPlus4Out: %b\nBranchAluOut: %b\npcSrcOut: %b\n", clk, extOut, sllOut, aluPCPlus4Out, branchAluOut, pcIn);
 	end
 
 	//clk transition
 	initial begin
-	#200	clk = 0;
-	#200	clk = 1;
-	#200	clk = 0;
-	#200	clk = 1;
-	#200	clk = 0;
-	#200	clk = 1;
-	#200	clk = 0;
-	// #200	clk = 1;
-	// #200	clk = 0;
+	#50	clk = 0;
+	#50	clk = 1;
+	#50	clk = 0;
+	#50	clk = 1;
+	#50	clk = 0;
+	#50	clk = 1;
+	#50	clk = 0;
+	end
+
+	initial begin
+		$dumpfile("processor.vcd");
+		$dumpvars;
 	end
 
 endmodule
