@@ -62,7 +62,7 @@ module processor ();
 
 	arithmeticlogicunit aluPCPlus4(
 		.A(pcOut),
-		.B(32'b1),
+		.B(32'b100),
 		.OP(4'b10),
 		.OUT(aluPCPlus4Out)
 	);
@@ -170,7 +170,7 @@ module processor ();
 	);
 
 	initial begin
-		// $monitor("clk: %b\npcOut: %b\nPC+4: %b\nSllOut: %b\npcIn|muxOut: %b\ninsMemOut: %b\n", clk, pcOut, aluPCPlus4Out, sllOut, pcIn, insMemOut);
+		$monitor("clk: %b\npcOut: %b\nPC+4: %b\nSllOut: %b\npcIn|muxOut: %b\ninsMemOut: %b\n", clk, pcOut, aluPCPlus4Out, sllOut, pcIn, insMemOut);
 		// $monitor("reg1addr: %b\nreg2addr: %b\nreg1content: %b\nreg2content: %b\naluSrcOut: %b\n\n", insMemOut[25:21], insMemOut[20:16], reg1content, reg2content, aluSrcOut);
 		// $monitor("MainAluOp: %b\nMainAluOut: %b\nZero: %b\n\n", aluCtrlOut, aluMainOut, zero);
 		// $monitor("DataOut: %b\n", dataMemOut);
@@ -189,9 +189,9 @@ module processor ();
 	#50	clk = 0;
 	end
 
-	initial begin
-		$dumpfile("processor.vcd");
-		$dumpvars;
-	end
+	// initial begin
+	// 	$dumpfile("processor.vcd");
+	// 	$dumpvars;
+	// end
 
 endmodule
