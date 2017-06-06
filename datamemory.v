@@ -6,17 +6,26 @@ module datamemory(
 	output reg[31:0] readData
 );
 
-	reg[31:0] memory[0:31];
+	reg[512:0] memory, bitaddr;
+	reg[32:0] i;
 
 	initial begin
-		memory[0] = 32'b100;
-		memory[1] = 32'b101;
-		memory[7] = 32'b10101;
+		memory[63:32] = 32'b100100100;
+		memory[95:64] = 32'b100101;
 	end
 
 	always @ (addr, writeData) begin
-		if(memRead) readData = memory[addr];
-		if(memWrite) memory[addr] = writeData;
+		bitaddr = addr*8;
+		if(memRead)begin
+			for(i=0; i<32; i=i+1)begin
+				readData[i] = memory[bitaddr+i];
+			end
+		end
+		if(memWrite)begin
+			for(i=0; i<32; i=i+1)begin
+				memory[bitaddr+i] = writeData[i];
+			end
+		end
 	end
 
 endmodule

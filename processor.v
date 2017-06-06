@@ -170,11 +170,11 @@ module processor ();
 	);
 
 	initial begin
-		$monitor("clk: %b\npcOut: %b\nPC+4: %b\nSllOut: %b\npcIn|muxOut: %b\ninsMemOut: %b\n", clk, pcOut, aluPCPlus4Out, sllOut, pcIn, insMemOut);
-		// $monitor("reg1addr: %b\nreg2addr: %b\nreg1content: %b\nreg2content: %b\naluSrcOut: %b\n\n", insMemOut[25:21], insMemOut[20:16], reg1content, reg2content, aluSrcOut);
+		// $monitor("clk: %b\npcOut: %b\nPC+4: %b\nSllOut: %b\npcIn|muxOut: %b\ninsMemOut: %b\n", clk, pcOut, aluPCPlus4Out, sllOut, pcIn, insMemOut);
+		// $monitor("reg1addr: %b\nreg2addr: %b\nreg1content: %b\nreg2content: %b\naluOut: %b\n\n", insMemOut[25:21], insMemOut[20:16], reg1content, reg2content, aluMainOut);
 		// $monitor("MainAluOp: %b\nMainAluOut: %b\nZero: %b\n\n", aluCtrlOut, aluMainOut, zero);
 		// $monitor("DataOut: %b\n", dataMemOut);
-		// $monitor("memtoRegOut: %b\n", memtoRegOut);
+		// $monitor("reg1content: %b\nreg2content: %b\nImmediate: %b\nmemData: %b\nmemtoRegOut: %b\n", reg1content, reg2content, insMemOut[15:0], dataMemOut, memtoRegOut);
 		// $monitor("clk: %b\nsignextOut: %b\nSLLOut: %b\nPCPlus4Out: %b\nBranchAluOut: %b\npcSrcOut: %b\n", clk, extOut, sllOut, aluPCPlus4Out, branchAluOut, pcIn);
 	end
 
@@ -187,11 +187,15 @@ module processor ();
 	#50	clk = 0;
 	#50	clk = 1;
 	#50	clk = 0;
+	#50	clk = 1;
+	#50	clk = 0;
+	#50	clk = 1;
+	#50	clk = 0;
 	end
 
-	// initial begin
-	// 	$dumpfile("processor.vcd");
-	// 	$dumpvars;
-	// end
+	initial begin
+		$dumpfile("processor.vcd");
+		$dumpvars;
+	end
 
 endmodule

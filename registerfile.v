@@ -14,11 +14,12 @@ module registerfile(
 
 	initial begin
 		registers[0] = 0;
+		//OPTIONAL TESTING REGISTERS
 		registers[8] = 10;
 		registers[9] = 6;
 		registers[10] = 4;
 		registers[11] = 4;
-		registers[17] = 32;
+		registers[17] = 64;
 		registers[18] = 10;
 		registers[19] = 2;
 	end
