@@ -1,0 +1,257 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'alu_control:aluControl|aluCtrlOut[0]'
+Slack : -15.033
+TNS   : -415.489
+
+Type  : Slow 1200mV 85C Model Setup 'sw3'
+Slack : -12.550
+TNS   : -245.783
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -10.152
+TNS   : -22312.272
+
+Type  : Slow 1200mV 85C Model Setup 'maincontrolunit:controlUnit|memtoReg'
+Slack : -9.746
+TNS   : -280.208
+
+Type  : Slow 1200mV 85C Model Setup 'realclock'
+Slack : -6.336
+TNS   : -91.045
+
+Type  : Slow 1200mV 85C Model Setup 'programcounter:pc|out[2]'
+Slack : -6.117
+TNS   : -35.832
+
+Type  : Slow 1200mV 85C Model Setup 'maincontrolunit:controlUnit|branch'
+Slack : -5.243
+TNS   : -12.902
+
+Type  : Slow 1200mV 85C Model Hold 'alu_control:aluControl|aluCtrlOut[0]'
+Slack : -4.025
+TNS   : -40.610
+
+Type  : Slow 1200mV 85C Model Hold 'programcounter:pc|out[2]'
+Slack : -3.583
+TNS   : -13.044
+
+Type  : Slow 1200mV 85C Model Hold 'sw3'
+Slack : -2.847
+TNS   : -6.414
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : -1.223
+TNS   : -23.862
+
+Type  : Slow 1200mV 85C Model Hold 'maincontrolunit:controlUnit|branch'
+Slack : 0.430
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'realclock'
+Slack : 0.629
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'maincontrolunit:controlUnit|memtoReg'
+Slack : 1.164
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'realclock'
+Slack : -3.000
+TNS   : -49.299
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sw3'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -1.403
+TNS   : -4371.748
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'programcounter:pc|out[2]'
+Slack : -0.614
+TNS   : -12.392
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'maincontrolunit:controlUnit|memtoReg'
+Slack : 0.406
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'alu_control:aluControl|aluCtrlOut[0]'
+Slack : 0.424
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'maincontrolunit:controlUnit|branch'
+Slack : 0.450
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'alu_control:aluControl|aluCtrlOut[0]'
+Slack : -14.106
+TNS   : -390.681
+
+Type  : Slow 1200mV 0C Model Setup 'sw3'
+Slack : -11.564
+TNS   : -228.318
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -9.395
+TNS   : -20492.640
+
+Type  : Slow 1200mV 0C Model Setup 'maincontrolunit:controlUnit|memtoReg'
+Slack : -8.943
+TNS   : -258.338
+
+Type  : Slow 1200mV 0C Model Setup 'programcounter:pc|out[2]'
+Slack : -5.890
+TNS   : -34.062
+
+Type  : Slow 1200mV 0C Model Setup 'realclock'
+Slack : -5.784
+TNS   : -79.989
+
+Type  : Slow 1200mV 0C Model Setup 'maincontrolunit:controlUnit|branch'
+Slack : -4.815
+TNS   : -11.775
+
+Type  : Slow 1200mV 0C Model Hold 'alu_control:aluControl|aluCtrlOut[0]'
+Slack : -3.604
+TNS   : -34.288
+
+Type  : Slow 1200mV 0C Model Hold 'programcounter:pc|out[2]'
+Slack : -3.136
+TNS   : -11.512
+
+Type  : Slow 1200mV 0C Model Hold 'sw3'
+Slack : -2.650
+TNS   : -5.877
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : -1.094
+TNS   : -20.979
+
+Type  : Slow 1200mV 0C Model Hold 'maincontrolunit:controlUnit|branch'
+Slack : 0.417
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'realclock'
+Slack : 0.581
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'maincontrolunit:controlUnit|memtoReg'
+Slack : 1.242
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'realclock'
+Slack : -3.000
+TNS   : -49.299
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sw3'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -1.403
+TNS   : -4371.748
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'programcounter:pc|out[2]'
+Slack : -0.388
+TNS   : -10.146
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'alu_control:aluControl|aluCtrlOut[0]'
+Slack : 0.386
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'maincontrolunit:controlUnit|memtoReg'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'maincontrolunit:controlUnit|branch'
+Slack : 0.451
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'alu_control:aluControl|aluCtrlOut[0]'
+Slack : -6.148
+TNS   : -166.710
+
+Type  : Fast 1200mV 0C Model Setup 'sw3'
+Slack : -5.209
+TNS   : -95.776
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -4.263
+TNS   : -8920.192
+
+Type  : Fast 1200mV 0C Model Setup 'maincontrolunit:controlUnit|memtoReg'
+Slack : -4.182
+TNS   : -117.716
+
+Type  : Fast 1200mV 0C Model Setup 'programcounter:pc|out[2]'
+Slack : -2.425
+TNS   : -12.743
+
+Type  : Fast 1200mV 0C Model Setup 'realclock'
+Slack : -2.148
+TNS   : -20.262
+
+Type  : Fast 1200mV 0C Model Setup 'maincontrolunit:controlUnit|branch'
+Slack : -1.985
+TNS   : -4.568
+
+Type  : Fast 1200mV 0C Model Hold 'alu_control:aluControl|aluCtrlOut[0]'
+Slack : -2.071
+TNS   : -26.980
+
+Type  : Fast 1200mV 0C Model Hold 'programcounter:pc|out[2]'
+Slack : -1.875
+TNS   : -7.172
+
+Type  : Fast 1200mV 0C Model Hold 'sw3'
+Slack : -1.652
+TNS   : -10.809
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : -0.758
+TNS   : -61.228
+
+Type  : Fast 1200mV 0C Model Hold 'maincontrolunit:controlUnit|branch'
+Slack : 0.108
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'realclock'
+Slack : 0.243
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'maincontrolunit:controlUnit|memtoReg'
+Slack : 0.544
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'realclock'
+Slack : -3.000
+TNS   : -37.152
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sw3'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -1.000
+TNS   : -3116.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'programcounter:pc|out[2]'
+Slack : -0.200
+TNS   : -2.300
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'maincontrolunit:controlUnit|memtoReg'
+Slack : 0.286
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'alu_control:aluControl|aluCtrlOut[0]'
+Slack : 0.298
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'maincontrolunit:controlUnit|branch'
+Slack : 0.444
+TNS   : 0.000
+
+------------------------------------------------------------

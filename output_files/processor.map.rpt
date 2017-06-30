@@ -1,0 +1,904 @@
+Analysis & Synthesis report for processor
+Fri Jun 23 19:17:25 2017
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Port Connectivity Checks: "arithmeticlogicunit:branchAlu"
+ 14. Port Connectivity Checks: "arithmeticlogicunit:aluPCPlus4"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Jun 23 19:17:25 2017       ;
+; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                      ; processor                                   ;
+; Top-level Entity Name              ; processor                                   ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 6,152                                       ;
+;     Total combinational functions  ; 3,156                                       ;
+;     Dedicated logic registers      ; 3,149                                       ;
+; Total registers                    ; 3149                                        ;
+; Total pins                         ; 63                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                                      ; processor          ; processor          ;
+; Family name                                                                ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                          ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.5%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                               ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                                                 ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------------------+---------+
+; sll.v                            ; yes             ; User Verilog HDL File  ; D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/sll.v                 ;         ;
+; signext.v                        ; yes             ; User Verilog HDL File  ; D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/signext.v             ;         ;
+; registerfile.v                   ; yes             ; User Verilog HDL File  ; D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/registerfile.v        ;         ;
+; programcounter.v                 ; yes             ; User Verilog HDL File  ; D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/programcounter.v      ;         ;
+; multiplexor.v                    ; yes             ; User Verilog HDL File  ; D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/multiplexor.v         ;         ;
+; maincontrolunit.v                ; yes             ; User Verilog HDL File  ; D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v     ;         ;
+; instructionmemory.v              ; yes             ; User Verilog HDL File  ; D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/instructionmemory.v   ;         ;
+; decoder.v                        ; yes             ; User Verilog HDL File  ; D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/decoder.v             ;         ;
+; datamemory.v                     ; yes             ; User Verilog HDL File  ; D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v          ;         ;
+; arithmeticlogicunit.v            ; yes             ; User Verilog HDL File  ; D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v ;         ;
+; andgate.v                        ; yes             ; User Verilog HDL File  ; D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/andgate.v             ;         ;
+; alu_control.v                    ; yes             ; User Verilog HDL File  ; D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v         ;         ;
+; processor.v                      ; yes             ; User Verilog HDL File  ; D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v           ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 6,152 ;
+;                                             ;       ;
+; Total combinational functions               ; 3156  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 2675  ;
+;     -- 3 input functions                    ; 351   ;
+;     -- <=2 input functions                  ; 130   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 3020  ;
+;     -- arithmetic mode                      ; 136   ;
+;                                             ;       ;
+; Total registers                             ; 3149  ;
+;     -- Dedicated logic registers            ; 3149  ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 63    ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 3117  ;
+; Total fan-out                               ; 21518 ;
+; Average fan-out                             ; 3.35  ;
++---------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                       ;
++-------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node          ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                       ; Entity Name         ; Library Name ;
++-------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------+---------------------+--------------+
+; |processor                          ; 3156 (184)          ; 3149 (33)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 63   ; 0            ; 0          ; |processor                                ; processor           ; work         ;
+;    |alu_control:aluControl|         ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|alu_control:aluControl         ; alu_control         ; work         ;
+;    |andgate:gate|                   ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|andgate:gate                   ; andgate             ; work         ;
+;    |arithmeticlogicunit:aluPCPlus4| ; 22 (22)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|arithmeticlogicunit:aluPCPlus4 ; arithmeticlogicunit ; work         ;
+;    |arithmeticlogicunit:branchAlu|  ; 44 (44)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|arithmeticlogicunit:branchAlu  ; arithmeticlogicunit ; work         ;
+;    |arithmeticlogicunit:mainAlu|    ; 195 (195)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|arithmeticlogicunit:mainAlu    ; arithmeticlogicunit ; work         ;
+;    |datamemory:datamem|             ; 1457 (1457)         ; 2048 (2048)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datamemory:datamem             ; datamemory          ; work         ;
+;    |decoder:display0|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|decoder:display0               ; decoder             ; work         ;
+;    |decoder:display1|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|decoder:display1               ; decoder             ; work         ;
+;    |decoder:display2|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|decoder:display2               ; decoder             ; work         ;
+;    |decoder:display3|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|decoder:display3               ; decoder             ; work         ;
+;    |decoder:display4|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|decoder:display4               ; decoder             ; work         ;
+;    |decoder:display5|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|decoder:display5               ; decoder             ; work         ;
+;    |instructionmemory:insmem|       ; 15 (15)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|instructionmemory:insmem       ; instructionmemory   ; work         ;
+;    |maincontrolunit:controlUnit|    ; 12 (12)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|maincontrolunit:controlUnit    ; maincontrolunit     ; work         ;
+;    |multiplexorALUSrc:alumux|       ; 33 (33)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|multiplexorALUSrc:alumux       ; multiplexorALUSrc   ; work         ;
+;    |multiplexorMemtoReg:dataMemMux| ; 32 (32)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|multiplexorMemtoReg:dataMemMux ; multiplexorMemtoReg ; work         ;
+;    |multiplexorRegDst:regfilemux|   ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|multiplexorRegDst:regfilemux   ; multiplexorRegDst   ; work         ;
+;    |programcounter:pc|              ; 22 (22)             ; 44 (44)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|programcounter:pc              ; programcounter      ; work         ;
+;    |registerfile:regfile|           ; 1073 (1073)         ; 1024 (1024)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|registerfile:regfile           ; registerfile        ; work         ;
++-------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                 ;
++------------------------------------------------------+-------------------------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal                 ; Free of Timing Hazards ;
++------------------------------------------------------+-------------------------------------+------------------------+
+; displaysIn[0][0]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[0][1]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[0][2]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[0][3]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[1][0]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[1][1]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[1][2]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[1][3]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[2][0]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[2][1]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[2][2]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[2][3]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[3][0]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[3][1]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[3][2]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[3][3]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[4][0]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[4][1]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[4][2]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[4][3]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[5][0]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[5][1]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[5][2]                                     ; displaysIn[1][0]                    ; yes                    ;
+; displaysIn[5][3]                                     ; displaysIn[1][0]                    ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[0]                   ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; maincontrolunit:controlUnit|ALUSrc                   ; maincontrolunit:controlUnit|WideOr0 ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[1]                   ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[2]                   ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; maincontrolunit:controlUnit|branch                   ; maincontrolunit:controlUnit|WideOr0 ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[3]                   ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[4]                   ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[5]                   ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[6]                   ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[7]                   ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[8]                   ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[9]                   ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[10]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[11]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[12]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[13]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[14]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[15]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[16]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[17]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[18]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[19]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[20]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[21]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[22]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[23]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[24]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[25]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[26]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[27]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[28]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[29]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[30]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; arithmeticlogicunit:mainAlu|OUT[31]                  ; arithmeticlogicunit:mainAlu|Mux32   ; yes                    ;
+; alu_control:aluControl|aluCtrlOut[0]                 ; alu_control:aluControl|Mux1         ; yes                    ;
+; alu_control:aluControl|aluCtrlOut[2]                 ; alu_control:aluControl|Mux1         ; yes                    ;
+; alu_control:aluControl|aluCtrlOut[1]                 ; alu_control:aluControl|Mux1         ; yes                    ;
+; datamemory:datamem|readData[0]                       ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; maincontrolunit:controlUnit|memtoReg                 ; maincontrolunit:controlUnit|WideOr0 ; yes                    ;
+; maincontrolunit:controlUnit|regWrite                 ; maincontrolunit:controlUnit|WideOr0 ; yes                    ;
+; maincontrolunit:controlUnit|regDst                   ; maincontrolunit:controlUnit|WideOr0 ; yes                    ;
+; datamemory:datamem|readData[1]                       ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[2]                       ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[3]                       ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[4]                       ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[5]                       ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[6]                       ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[7]                       ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[8]                       ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[9]                       ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[10]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[11]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[12]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[13]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[14]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[15]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[16]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[17]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[18]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[19]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[20]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[21]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[22]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[23]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; maincontrolunit:controlUnit|ALUOp1                   ; maincontrolunit:controlUnit|WideOr0 ; yes                    ;
+; maincontrolunit:controlUnit|ALUOp0                   ; maincontrolunit:controlUnit|WideOr0 ; yes                    ;
+; datamemory:datamem|readData[31]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[30]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[29]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[28]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[27]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[26]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[25]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; datamemory:datamem|readData[24]                      ; maincontrolunit:controlUnit|memRead ; yes                    ;
+; maincontrolunit:controlUnit|memRead                  ; maincontrolunit:controlUnit|WideOr0 ; yes                    ;
+; maincontrolunit:controlUnit|memWrite                 ; maincontrolunit:controlUnit|WideOr0 ; yes                    ;
+; Number of user-specified and inferred latches = 100  ;                                     ;                        ;
++------------------------------------------------------+-------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; programcounter:pc|out[1]               ; Merged with programcounter:pc|out[0]   ;
+; programcounter:pc|temp[1]              ; Merged with programcounter:pc|temp[0]  ;
+; programcounter:pc|out[0]               ; Stuck at GND due to stuck port data_in ;
+; programcounter:pc|temp[0]              ; Stuck at GND due to stuck port data_in ;
+; programcounter:pc|out[24..31]          ; Lost fanout                            ;
+; programcounter:pc|temp[24..31]         ; Lost fanout                            ;
+; Total Number of Removed Registers = 20 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                    ;
++---------------------------+---------------------------+----------------------------------------+
+; Register name             ; Reason for Removal        ; Registers Removed due to This Register ;
++---------------------------+---------------------------+----------------------------------------+
+; programcounter:pc|out[0]  ; Stuck at GND              ; programcounter:pc|temp[0]              ;
+;                           ; due to stuck port data_in ;                                        ;
+; programcounter:pc|out[24] ; Lost Fanouts              ; programcounter:pc|temp[24]             ;
+; programcounter:pc|out[25] ; Lost Fanouts              ; programcounter:pc|temp[25]             ;
+; programcounter:pc|out[26] ; Lost Fanouts              ; programcounter:pc|temp[26]             ;
+; programcounter:pc|out[27] ; Lost Fanouts              ; programcounter:pc|temp[27]             ;
+; programcounter:pc|out[28] ; Lost Fanouts              ; programcounter:pc|temp[28]             ;
+; programcounter:pc|out[29] ; Lost Fanouts              ; programcounter:pc|temp[29]             ;
+; programcounter:pc|out[30] ; Lost Fanouts              ; programcounter:pc|temp[30]             ;
+; programcounter:pc|out[31] ; Lost Fanouts              ; programcounter:pc|temp[31]             ;
++---------------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 3149  ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 3104  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |processor|alu_control:aluControl|Mux0       ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; No         ; |processor|arithmeticlogicunit:mainAlu|Mux23 ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |processor|displaysIn[0][0]                  ;
+; 6:1                ; 22 bits   ; 88 LEs        ; 88 LEs               ; 0 LEs                  ; No         ; |processor|displaysIn[2][1]                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "arithmeticlogicunit:branchAlu"                                                                               ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                  ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; OP[3..2] ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; OP[1]    ; Input  ; Info     ; Stuck at VCC                                                                                             ;
+; OP[0]    ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; zero     ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "arithmeticlogicunit:aluPCPlus4"                                                                              ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                  ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; B[31..3] ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; B[1..0]  ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; B[2]     ; Input  ; Info     ; Stuck at VCC                                                                                             ;
+; OP[3..2] ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; OP[1]    ; Input  ; Info     ; Stuck at VCC                                                                                             ;
+; OP[0]    ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; zero     ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 63                          ;
+; cycloneiii_ff         ; 3149                        ;
+;     ENA               ; 3104                        ;
+;     SLD               ; 1                           ;
+;     plain             ; 44                          ;
+; cycloneiii_lcell_comb ; 3162                        ;
+;     arith             ; 136                         ;
+;         2 data inputs ; 54                          ;
+;         3 data inputs ; 82                          ;
+;     normal            ; 3026                        ;
+;         1 data inputs ; 20                          ;
+;         2 data inputs ; 62                          ;
+;         3 data inputs ; 269                         ;
+;         4 data inputs ; 2675                        ;
+;                       ;                             ;
+; Max LUT depth         ; 14.00                       ;
+; Average LUT depth     ; 7.40                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:12     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Fri Jun 23 19:16:51 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off processor -c processor
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file sll.v
+    Info (12023): Found entity 1: shiftlogicalleft File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/sll.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file signext.v
+    Info (12023): Found entity 1: signext File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/signext.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file registerfile.v
+    Info (12023): Found entity 1: registerfile File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/registerfile.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file programcounter.v
+    Info (12023): Found entity 1: programcounter File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/programcounter.v Line: 1
+Info (12021): Found 4 design units, including 4 entities, in source file multiplexor.v
+    Info (12023): Found entity 1: multiplexorRegDst File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/multiplexor.v Line: 1
+    Info (12023): Found entity 2: multiplexorALUSrc File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/multiplexor.v Line: 15
+    Info (12023): Found entity 3: multiplexorMemtoReg File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/multiplexor.v Line: 30
+    Info (12023): Found entity 4: multiplexorPCSrc File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/multiplexor.v Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file maincontrolunit.v
+    Info (12023): Found entity 1: maincontrolunit File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file instructionmemory.v
+    Info (12023): Found entity 1: instructionmemory File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/instructionmemory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file decoder.v
+    Info (12023): Found entity 1: decoder File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/decoder.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file datamemory.v
+    Info (12023): Found entity 1: datamemory File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file arithmeticlogicunit.v
+    Info (12023): Found entity 1: arithmeticlogicunit File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file andgate.v
+    Info (12023): Found entity 1: andgate File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/andgate.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu_control.v
+    Info (12023): Found entity 1: alu_control File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file processor.v
+    Info (12023): Found entity 1: processor File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 4
+Info (12127): Elaborating entity "processor" for the top level hierarchy
+Warning (10235): Verilog HDL Always Construct warning at processor.v(149): variable "aluSrcOut" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 149
+Warning (10235): Verilog HDL Always Construct warning at processor.v(150): variable "aluSrcOut" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 150
+Warning (10235): Verilog HDL Always Construct warning at processor.v(151): variable "aluSrcOut" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 151
+Warning (10235): Verilog HDL Always Construct warning at processor.v(152): variable "aluSrcOut" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 152
+Warning (10235): Verilog HDL Always Construct warning at processor.v(153): variable "aluSrcOut" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 153
+Warning (10235): Verilog HDL Always Construct warning at processor.v(154): variable "aluSrcOut" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 154
+Warning (10235): Verilog HDL Always Construct warning at processor.v(157): variable "reg1content" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 157
+Warning (10235): Verilog HDL Always Construct warning at processor.v(158): variable "reg1content" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 158
+Warning (10235): Verilog HDL Always Construct warning at processor.v(159): variable "reg1content" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 159
+Warning (10235): Verilog HDL Always Construct warning at processor.v(160): variable "reg1content" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 160
+Warning (10235): Verilog HDL Always Construct warning at processor.v(161): variable "reg1content" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 161
+Warning (10235): Verilog HDL Always Construct warning at processor.v(162): variable "reg1content" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 162
+Info (10041): Inferred latch for "displaysIn[0][0]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[0][1]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[0][2]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[0][3]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[1][0]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[1][1]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[1][2]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[1][3]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[2][0]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[2][1]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[2][2]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[2][3]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[3][0]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[3][1]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[3][2]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[3][3]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[4][0]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[4][1]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[4][2]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[4][3]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[5][0]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[5][1]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[5][2]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (10041): Inferred latch for "displaysIn[5][3]" at processor.v(123) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+Info (12128): Elaborating entity "decoder" for hierarchy "decoder:display0" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 62
+Info (12128): Elaborating entity "programcounter" for hierarchy "programcounter:pc" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 184
+Info (12128): Elaborating entity "arithmeticlogicunit" for hierarchy "arithmeticlogicunit:aluPCPlus4" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 191
+Warning (10240): Verilog HDL Always Construct warning at arithmeticlogicunit.v(10): inferring latch(es) for variable "OUT", which holds its previous value in one or more paths through the always construct File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[0]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[1]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[2]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[3]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[4]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[5]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[6]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[7]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[8]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[9]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[10]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[11]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[12]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[13]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[14]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[15]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[16]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[17]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[18]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[19]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[20]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[21]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[22]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[23]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[24]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[25]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[26]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[27]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[28]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[29]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[30]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (10041): Inferred latch for "OUT[31]" at arithmeticlogicunit.v(10) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Info (12128): Elaborating entity "instructionmemory" for hierarchy "instructionmemory:insmem" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 196
+Warning (10030): Net "memory.data_a" at instructionmemory.v(6) has no driver or initial value, using a default initial value '0' File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/instructionmemory.v Line: 6
+Warning (10030): Net "memory.waddr_a" at instructionmemory.v(6) has no driver or initial value, using a default initial value '0' File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/instructionmemory.v Line: 6
+Warning (10030): Net "memory.we_a" at instructionmemory.v(6) has no driver or initial value, using a default initial value '0' File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/instructionmemory.v Line: 6
+Info (12128): Elaborating entity "maincontrolunit" for hierarchy "maincontrolunit:controlUnit" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 209
+Warning (10270): Verilog HDL Case Statement warning at maincontrolunit.v(15): incomplete case statement has no default case item File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 15
+Warning (10240): Verilog HDL Always Construct warning at maincontrolunit.v(14): inferring latch(es) for variable "regDst", which holds its previous value in one or more paths through the always construct File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at maincontrolunit.v(14): inferring latch(es) for variable "ALUSrc", which holds its previous value in one or more paths through the always construct File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at maincontrolunit.v(14): inferring latch(es) for variable "memtoReg", which holds its previous value in one or more paths through the always construct File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at maincontrolunit.v(14): inferring latch(es) for variable "regWrite", which holds its previous value in one or more paths through the always construct File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at maincontrolunit.v(14): inferring latch(es) for variable "memRead", which holds its previous value in one or more paths through the always construct File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at maincontrolunit.v(14): inferring latch(es) for variable "memWrite", which holds its previous value in one or more paths through the always construct File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at maincontrolunit.v(14): inferring latch(es) for variable "branch", which holds its previous value in one or more paths through the always construct File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at maincontrolunit.v(14): inferring latch(es) for variable "ALUOp1", which holds its previous value in one or more paths through the always construct File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at maincontrolunit.v(14): inferring latch(es) for variable "ALUOp0", which holds its previous value in one or more paths through the always construct File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Info (10041): Inferred latch for "ALUOp0" at maincontrolunit.v(14) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Info (10041): Inferred latch for "ALUOp1" at maincontrolunit.v(14) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Info (10041): Inferred latch for "branch" at maincontrolunit.v(14) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Info (10041): Inferred latch for "memWrite" at maincontrolunit.v(14) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Info (10041): Inferred latch for "memRead" at maincontrolunit.v(14) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Info (10041): Inferred latch for "regWrite" at maincontrolunit.v(14) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Info (10041): Inferred latch for "memtoReg" at maincontrolunit.v(14) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Info (10041): Inferred latch for "ALUSrc" at maincontrolunit.v(14) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Info (10041): Inferred latch for "regDst" at maincontrolunit.v(14) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 14
+Info (12128): Elaborating entity "multiplexorRegDst" for hierarchy "multiplexorRegDst:regfilemux" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 216
+Info (12128): Elaborating entity "signext" for hierarchy "signext:ext" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 221
+Info (12128): Elaborating entity "registerfile" for hierarchy "registerfile:regfile" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 232
+Info (12128): Elaborating entity "multiplexorALUSrc" for hierarchy "multiplexorALUSrc:alumux" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 239
+Info (12128): Elaborating entity "alu_control" for hierarchy "alu_control:aluControl" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 245
+Warning (10270): Verilog HDL Case Statement warning at alu_control.v(11): incomplete case statement has no default case item File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 11
+Warning (10270): Verilog HDL Case Statement warning at alu_control.v(8): incomplete case statement has no default case item File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 8
+Warning (10240): Verilog HDL Always Construct warning at alu_control.v(7): inferring latch(es) for variable "aluCtrlOut", which holds its previous value in one or more paths through the always construct File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Info (10041): Inferred latch for "aluCtrlOut[0]" at alu_control.v(7) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Info (10041): Inferred latch for "aluCtrlOut[1]" at alu_control.v(7) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Info (10041): Inferred latch for "aluCtrlOut[2]" at alu_control.v(7) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Info (10041): Inferred latch for "aluCtrlOut[3]" at alu_control.v(7) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Info (12128): Elaborating entity "shiftlogicalleft" for hierarchy "shiftlogicalleft:sll" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 258
+Info (12128): Elaborating entity "multiplexorPCSrc" for hierarchy "multiplexorPCSrc:branchmux" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 272
+Info (12128): Elaborating entity "andgate" for hierarchy "andgate:gate" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 278
+Info (12128): Elaborating entity "datamemory" for hierarchy "datamemory:datamem" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 287
+Warning (10240): Verilog HDL Always Construct warning at datamemory.v(12): inferring latch(es) for variable "readData", which holds its previous value in one or more paths through the always construct File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[0]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[1]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[2]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[3]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[4]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[5]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[6]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[7]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[8]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[9]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[10]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[11]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[12]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[13]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[14]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[15]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[16]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[17]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[18]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[19]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[20]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[21]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[22]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[23]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[24]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[25]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[26]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[27]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[28]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[29]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[30]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (10041): Inferred latch for "readData[31]" at datamemory.v(12) File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 12
+Info (12128): Elaborating entity "multiplexorMemtoReg" for hierarchy "multiplexorMemtoReg:dataMemMux" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 294
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[0]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[1]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[2]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[3]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[4]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[5]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[6]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[7]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[8]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[9]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[10]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[11]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[12]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[13]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[14]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[15]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[16]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[17]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[18]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[19]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[20]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[21]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[22]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[23]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[24]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[25]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[26]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[27]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[28]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[29]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[30]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:branchAlu|OUT[31]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[0]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[1]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[2]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[3]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[4]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[5]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[6]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[7]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[8]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[9]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[10]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[11]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[12]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[13]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[14]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[15]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[16]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[17]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[18]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[19]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[20]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[21]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[22]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[23]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[24]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[25]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[26]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[27]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[28]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[29]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[30]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (14026): LATCH primitive "arithmeticlogicunit:aluPCPlus4|OUT[31]" is permanently enabled File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/db/processor.ram0_registerfile_e17e90b4.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/db/processor.ram0_registerfile_e17e90b4.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/db/processor.ram0_registerfile_e17e90b4.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/db/processor.ram0_instructionmemory_56655cf4.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (276014): Found 3 instances of uninferred RAM logic
+    Info (276013): RAM logic "registerfile:regfile|registers" is uninferred because MIF is not supported for the selected family File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/registerfile.v Line: 13
+    Info (276013): RAM logic "instructionmemory:insmem|memory" is uninferred because MIF is not supported for the selected family File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/instructionmemory.v Line: 6
+    Info (276007): RAM logic "datamemory:datamem|memory" is uninferred due to asynchronous read logic File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/datamemory.v Line: 10
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/db/processor.ram0_instructionmemory_56655cf4.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/db/processor.ram0_registerfile_e17e90b4.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "maincontrolunit:controlUnit|ALUOp0" merged with LATCH primitive "maincontrolunit:controlUnit|branch" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 12
+    Info (13026): Duplicate LATCH primitive "maincontrolunit:controlUnit|memRead" merged with LATCH primitive "maincontrolunit:controlUnit|memtoReg" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 7
+    Info (13026): Duplicate LATCH primitive "maincontrolunit:controlUnit|ALUOp1" merged with LATCH primitive "maincontrolunit:controlUnit|regDst" File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 10
+Warning (13012): Latch displaysIn[0][0] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw5 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[0][1] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw5 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[0][2] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[0][3] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[1][0] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[1][1] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[1][2] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[1][3] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[2][0] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[2][1] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[2][2] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[2][3] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[3][0] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[3][1] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[3][2] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[3][3] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[4][0] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[4][1] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[4][2] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[4][3] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[5][0] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[5][1] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[5][2] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch displaysIn[5][3] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 123
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw8 File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/processor.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[0] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[0] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch maincontrolunit:controlUnit|ALUSrc has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 4
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal programcounter:pc|out[2] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/programcounter.v Line: 15
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[1] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[2] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch maincontrolunit:controlUnit|branch has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal programcounter:pc|out[2] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/programcounter.v Line: 15
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[3] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[4] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[5] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[6] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[7] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[8] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[9] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[10] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[11] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[12] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[13] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[14] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[15] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[16] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[17] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[18] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[19] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[20] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[21] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[22] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[23] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[24] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[25] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[26] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[27] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[28] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[29] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[30] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch arithmeticlogicunit:mainAlu|OUT[31] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/arithmeticlogicunit.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal alu_control:aluControl|aluCtrlOut[1] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+Warning (13012): Latch alu_control:aluControl|aluCtrlOut[0] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal maincontrolunit:controlUnit|regDst File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 3
+Warning (13012): Latch alu_control:aluControl|aluCtrlOut[2] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal maincontrolunit:controlUnit|branch File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 9
+Warning (13012): Latch alu_control:aluControl|aluCtrlOut[1] has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/alu_control.v Line: 7
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal maincontrolunit:controlUnit|regDst File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 3
+Warning (13012): Latch maincontrolunit:controlUnit|memtoReg has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 5
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal programcounter:pc|out[2] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/programcounter.v Line: 15
+Warning (13012): Latch maincontrolunit:controlUnit|regWrite has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 6
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal programcounter:pc|out[2] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/programcounter.v Line: 15
+Warning (13012): Latch maincontrolunit:controlUnit|regDst has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 3
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal programcounter:pc|out[3] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/programcounter.v Line: 15
+Warning (13012): Latch maincontrolunit:controlUnit|memWrite has unsafe behavior File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/maincontrolunit.v Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal programcounter:pc|out[2] File: D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/programcounter.v Line: 15
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 16 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/output_files/processor.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 6320 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 52 output pins
+    Info (21061): Implemented 6257 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 232 warnings
+    Info: Peak virtual memory: 668 megabytes
+    Info: Processing ended: Fri Jun 23 19:17:25 2017
+    Info: Elapsed time: 00:00:34
+    Info: Total CPU time (on all processors): 00:00:57
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/Cloud_Storage/Google Drive/Faculdade/Semestre 3/CCF252 OC I/Trabalhos Praticos/OC1_MIPS_Processador/output_files/processor.map.smsg.
+
+

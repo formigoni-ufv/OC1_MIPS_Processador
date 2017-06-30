@@ -1,4 +1,5 @@
 module datamemory(
+	input wire clk,
 	input wire[31:0] addr,
 	input wire[31:0] writeData,
 	input wire memRead,
@@ -6,26 +7,14 @@ module datamemory(
 	output reg[31:0] readData
 );
 
-	reg[512:0] memory, bitaddr;
-	reg[32:0] i;
+	reg[31:0] memory[0:63];
 
-	initial begin
-		memory[63:32] = 32'b100100100;
-		memory[95:64] = 32'b100101;
+	always @ (addr, writeData, memRead)begin
+		if(memRead) readData <= memory[addr];
 	end
 
-	always @ (addr, writeData) begin
-		bitaddr = addr*8;
-		if(memRead)begin
-			for(i=0; i<32; i=i+1)begin
-				readData[i] = memory[bitaddr+i];
-			end
-		end
-		if(memWrite)begin
-			for(i=0; i<32; i=i+1)begin
-				memory[bitaddr+i] = writeData[i];
-			end
-		end
+	always @ (posedge clk) begin
+		if(memWrite) memory[addr] <= writeData;
 	end
 
 endmodule

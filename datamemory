@@ -1,0 +1,107 @@
+#! c:/iverilog-x64/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1_1)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0000000000c0e9a0 .scope module, "testbench" "testbench" 2 24;
+ .timescale 0 0;
+v00000000008ad750_0 .var "addr", 31 0;
+v00000000008ad7f0_0 .var "clk", 0 0;
+v00000000008ad890_0 .var "memRead", 0 0;
+v00000000008ad930_0 .var "memWrite", 0 0;
+v00000000008ad9d0_0 .net "readData", 31 0, v0000000000c078a0_0;  1 drivers
+v00000000008ae240_0 .var "writeData", 31 0;
+E_000000000085bb30 .event edge, v0000000000c078a0_0;
+S_0000000000c07540 .scope module, "dm" "datamemory" 2 29, 2 1 0, S_0000000000c0e9a0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk"
+    .port_info 1 /INPUT 32 "addr"
+    .port_info 2 /INPUT 32 "writeData"
+    .port_info 3 /INPUT 1 "memRead"
+    .port_info 4 /INPUT 1 "memWrite"
+    .port_info 5 /OUTPUT 32 "readData"
+v0000000000c0eb20_0 .net "addr", 31 0, v00000000008ad750_0;  1 drivers
+v0000000000c0ebc0_0 .net "clk", 0 0, v00000000008ad7f0_0;  1 drivers
+v0000000000c076c0_0 .net "memRead", 0 0, v00000000008ad890_0;  1 drivers
+v0000000000c07760_0 .net "memWrite", 0 0, v00000000008ad930_0;  1 drivers
+v0000000000c07800 .array "memory", 63 0, 31 0;
+v0000000000c078a0_0 .var "readData", 31 0;
+v00000000008ad6b0_0 .net "writeData", 31 0, v00000000008ae240_0;  1 drivers
+E_000000000085b970 .event posedge, v0000000000c0ebc0_0;
+E_000000000085b730 .event edge, v0000000000c076c0_0, v00000000008ad6b0_0, v0000000000c0eb20_0;
+    .scope S_0000000000c07540;
+T_0 ;
+    %wait E_000000000085b730;
+    %load/vec4 v0000000000c076c0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %ix/getv 4, v0000000000c0eb20_0;
+    %load/vec4a v0000000000c07800, 4;
+    %assign/vec4 v0000000000c078a0_0, 0;
+T_0.0 ;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0000000000c07540;
+T_1 ;
+    %wait E_000000000085b970;
+    %load/vec4 v0000000000c07760_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.0, 8;
+    %load/vec4 v00000000008ad6b0_0;
+    %ix/getv 3, v0000000000c0eb20_0;
+    %ix/load 4, 0, 0; Constant delay
+    %assign/vec4/a/d v0000000000c07800, 0, 4;
+T_1.0 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0000000000c0e9a0;
+T_2 ;
+    %pushi/vec4 4, 0, 32;
+    %store/vec4 v00000000008ad750_0, 0, 32;
+    %end;
+    .thread T_2;
+    .scope S_0000000000c0e9a0;
+T_3 ;
+    %pushi/vec4 10, 0, 32;
+    %store/vec4 v00000000008ae240_0, 0, 32;
+    %end;
+    .thread T_3;
+    .scope S_0000000000c0e9a0;
+T_4 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000008ad7f0_0, 0, 1;
+    %end;
+    .thread T_4;
+    .scope S_0000000000c0e9a0;
+T_5 ;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000008ad930_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000008ad7f0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000008ad930_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000008ad890_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000008ad890_0, 0, 1;
+    %end;
+    .thread T_5;
+    .scope S_0000000000c0e9a0;
+T_6 ;
+    %wait E_000000000085bb30;
+    %vpi_call 2 47 "$monitor", "Out: %b\012", v00000000008ad9d0_0 {0 0 0};
+    %jmp T_6;
+    .thread T_6, $push;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "datamemory.v";

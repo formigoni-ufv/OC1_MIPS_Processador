@@ -15,13 +15,13 @@ module registerfile(
 	initial begin
 		registers[0] = 0;
 		//OPTIONAL TESTING REGISTERS
-		registers[8] = 10;
-		registers[9] = 6;
-		registers[10] = 4;
-		registers[11] = 4;
-		registers[17] = 64;
-		registers[18] = 10;
-		registers[19] = 2;
+		registers[8] = 10;	//$t0
+		registers[9] = 6;		//$t1
+		registers[10] = 4;	//$t2
+		registers[11] = 4;	//$t3
+		registers[12] = 77;	//$t4
+		
+		registers[17] = 10;	//$s1
 	end
 
 	///////////OUTPUT ASSIGNMENT////////////
@@ -35,7 +35,7 @@ module registerfile(
 	end
 
 	////////////DATA WRITE//////////////////
-	always@(negedge clk) begin
+	always@(posedge clk) begin
 		if(regWrite == 1) begin
 			registers[regWaddr] = data;
 			update = 1;

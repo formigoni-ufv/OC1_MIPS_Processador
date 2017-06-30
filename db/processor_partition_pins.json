@@ -1,0 +1,261 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "led0",
+					"strict" : false
+				},
+				{
+					"name" : "led1",
+					"strict" : false
+				},
+				{
+					"name" : "led2",
+					"strict" : false
+				},
+				{
+					"name" : "led3",
+					"strict" : false
+				},
+				{
+					"name" : "led4",
+					"strict" : false
+				},
+				{
+					"name" : "led5",
+					"strict" : false
+				},
+				{
+					"name" : "led6",
+					"strict" : false
+				},
+				{
+					"name" : "led7",
+					"strict" : false
+				},
+				{
+					"name" : "led8",
+					"strict" : false
+				},
+				{
+					"name" : "led9",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY0[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY0[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY0[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY0[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY0[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY0[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY3[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY3[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY3[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY3[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY4[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY4[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY4[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY4[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY4[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY4[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY4[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY5[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY5[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY5[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY5[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY5[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY5[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY5[6]",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "sw2",
+					"strict" : false
+				},
+				{
+					"name" : "sw3",
+					"strict" : false
+				},
+				{
+					"name" : "sw4",
+					"strict" : false
+				},
+				{
+					"name" : "sw5",
+					"strict" : false
+				},
+				{
+					"name" : "sw6",
+					"strict" : false
+				},
+				{
+					"name" : "sw7",
+					"strict" : false
+				},
+				{
+					"name" : "sw8",
+					"strict" : false
+				},
+				{
+					"name" : "sw9",
+					"strict" : false
+				},
+				{
+					"name" : "realclock",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
